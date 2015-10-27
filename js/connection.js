@@ -1,0 +1,1 @@
+var base_url = 'http://dominion.autospares.co.ke/mobile/';
