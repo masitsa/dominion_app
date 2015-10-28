@@ -19,7 +19,9 @@ border: 1px solid #9c27b0;
 color: #9c27b0;
 }
 .button.active {
-background: #FDD835;border-color: #fdd835;color:#212121;font-size: 1.5em;font-weight: bold;
+background: #FDD835;border-color: #fdd835;color:#212121;
+font-size: 1em;
+font-weight: normal;
 }
 #pages_maincontent h3{
 color:#9c27b0;
@@ -34,7 +36,7 @@ color:#9c27b0;
 .list-block .swipeout-actions-right a {
 background: #9c27b0;
 }
-.contactform input.form_submit, .loginform input.form_submit, .commentform input.form_submit, .contactform a.form_submit{ 
+.contactform input.form_submit, button.form_submit, .loginform input.form_submit, .commentform input.form_submit, .contactform a.form_submit{ 
 background-color:#e1bee7;
 }
 /*===============================================*/
@@ -42,7 +44,7 @@ background-color:#e1bee7;
 /*===============================================*/	
 .homepage{
 /*background: url(../../images/colors/magenta/bg.jpg) no-repeat center center;*/
-background-color: #673ab7;
+background-color: grey;
 background-attachment:fixed;
 -webkit-background-size: 100%; 
 -moz-background-size: 100%;
@@ -55,7 +57,7 @@ background-size: cover;
 }
 .navbarpages{
 /*background:url(../../images/colors/magenta/header.jpg) no-repeat center center;*/
-  background-color: #673AB7;
+  background-color: #9c27b0;
 }
 /*===============================================*/
 /* MAIN NAV LINKS */
@@ -92,7 +94,7 @@ border-bottom:1px #9b4d5b solid;
 }
 /* MENU OPENER ICON */
 ul.toolbar_icons li.menuicon{
-background-color:#fdd835;
+background-color:#9c27b0;
 }
 
 /* PANEL CLOSE BUTTON */

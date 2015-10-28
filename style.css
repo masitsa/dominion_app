@@ -402,7 +402,7 @@ font-weight:300;
 
 .toolbar-inner{
   position: absolute;
-  background: #fdd835 !important;
+  background: #9c27b0 !important;
   left: 0;
   top: 0px;
   z-index:99999;
@@ -972,24 +972,24 @@ width:10%;
 text-align:center;
 }
 span.day{
-font-size:55px;
-font-weight:700;
+font-size:40px;
+font-weight:600;
 line-height:30px;
 }
 span.month{
-font-size:20px;
-font-weight:300;
-line-height:10px;
+font-size: 20px;
+font-weight: 300;
+line-height: 10px;
 }
 .post_title{
 width:80%;
 float:left;
-margin:-20px 0 0 10%;
+margin:0px 0 0 10%;
 }
 .post_title_resourses{
 width:80%;
 float:left;
-margin:0 0 0 10%;
+margin:0 0 0 5%;
 }
 .post_title h2{
 font-size:24px;
@@ -1285,6 +1285,20 @@ color:#212121;
 border: none;
 cursor:pointer;
 }
+button.form_submit
+{
+  width:100%;
+padding:10px 0; 
+margin:15px 0 0 0; 
+font-weight:normal;
+text-align:center;
+cursor:pointer; 
+font-size:18px;
+color:#212121;
+-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;
+border: none;
+cursor:pointer;
+}
 .forgot_pass{
 width:100%;
 text-align:right;
@@ -1494,7 +1508,7 @@ width:30px;
 padding:10px 15px 0 0;
 }
 ul.posts li{
-padding:10px 0;
+padding: 25px 0 0;
 }
 .post_date{
 width:20%;
