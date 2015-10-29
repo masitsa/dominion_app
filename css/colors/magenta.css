@@ -44,7 +44,7 @@ background-color:#e1bee7;
 /*===============================================*/	
 .homepage{
 /*background: url(../../images/colors/magenta/bg.jpg) no-repeat center center;*/
-background-color: grey;
+background-color: #f9f9f9;
 background-attachment:fixed;
 -webkit-background-size: 100%; 
 -moz-background-size: 100%;
@@ -75,7 +75,7 @@ color: #fff;
 /*===============================================*/	
 .popup{
 /*background: #49182d;*/
-background-color: #FDD835;
+background-color: #7b1fa2;
 }
 .popup-login, .popup-signup, .popup-forgot{
 background-color:#7b1fa2;

@@ -96,8 +96,10 @@
             <div class="page-content">
             	<div class="logo">
                 	<img src="images/crown.png" alt="" title="" />
-                    <h2>Dominion Position Chapel</h2>
+                    <h2>Dominion</h2>
+                    <h3 class="motto">"Reign In Life"</h3>
                 </div> 
+
             </div>
           </div>
         
@@ -124,11 +126,11 @@
     <div class="content-block">
               <nav class="main-nav">
                 <ul>
-                  <li><a href="arms.html" class="close-popup"><img src="images/icons/white/home.png" alt="" title="" /><span>Home</span></a></li>                  
+                  <li><a href="arms.html" class="close-popup" onclick="get_arms_items();"><img src="images/icons/white/home.png" alt="" title="" /><span>Home</span></a></li>                  
                   <li><a href="blog.html" class="close-popup" onClick="get_news_items()"><img src="images/icons/white/blog.png" alt="" title="" /><span>News</span></a></li>
                   <li><a href="events.html" class="close-popup" onClick="get_event_items()"><img src="images/icons/white/toogle.png" alt="" title="" /><span>Events</span></a></li>
                   <li><a href="5-minute-church.html" class="close-popup" onClick="get_sermons()"><img src="images/icons/white/prayer.png" alt="" title="" /><span>5 min church</span></a></li>
-                  <li><a href="initiatives.html" class="close-popup" onClick="get_event_items()"><img src="images/icons/white/sermon.png" alt="" title="" /><span>Initiatives</span></a></li>
+                  <li><a href="initiatives.html" class="close-popup" onClick="get_initiative_items()"><img src="images/icons/white/sermon.png" alt="" title="" /><span>Initiatives</span></a></li>
                   <li><a href="membership.html" class="close-popup" onClick="get_event_items()"><img src="images/icons/white/group.png" alt="" title="" /><span>Membership</span></a></li>
                   <!--<li id="pro_social" class="display_none"><a href="pro-social.html" class="close-popup" onClick="get_social_user()"><img src="images/icons/white/docs.png" alt="" title="" onClick="get_social_forum()" /><span>Pro social</span></a></li>
                   <li id="cpd_live" class="display_none"><a href="videos.html" class="close-popup" onClick="get_streaming_event()"><img src="images/icons/white/video.png" alt="" title="" /><span>ICPAK Videos</span></a></li>
@@ -176,18 +178,15 @@
     </div>
     
     <!-- Register Popup -->
-    <div class="popup popup-signup">
+    <div class="popup popup-influenceup">
     <div class="content-block-login">
-      <h4>Create Account</h4>
+      <h4>Be a member as DG Influencer</h4>
       <div id="register_response"></div>
-       <div class="form_logo"><img src="images/crown.png" alt="" title="" /><h4>Dominion Position Chapel</h4></div>
+       <!-- <div class="form_logo"><img src="images/crown.png" alt="" title="" /><h4>Dominion Position Chapel</h4></div> -->
             <div class="loginform">
               <form id="register_member" method="post">
                 <div class="col-md-12 col-sm-12">
-                  <input type="text" name="first_name" value="" class="form_input required col-md-6 col-sm-6" placeholder="First Name" />
-                  <input type="text" name="other_names" value="" class="form_input required col-md-6 col-sm-6" placeholder="Other Names" />
-                </div>
-                
+                  <input type="text" name="first_name" value="" class="form_input required col-md-6 col-sm-6" placeholder="Your Name" />
                 <input type="text" name="ministry" value="" class="form_input required" placeholder="Ministry / Organization" />
                 <input type="text" name="leadership_position" value="" class="form_input required" placeholder="Leaderhip position" />
                 <input type="text" name="ministry" value="" class="form_input required" placeholder="Ministry / Organization" />
@@ -203,7 +202,68 @@
               </div>-->
                <div class="signup_bottom">
                   <p>Already have account?</p>
-                  <a href="#" data-popup=".popup-signup" class="open-popup">Login</a>            
+                  <a href="#" data-popup=".popup-login" class="open-popup">Login</a>            
+              </div>
+            </div>
+      <div class="close_loginpopup_button"><a href="#" class="close-popup"><img src="images/icons/white/menu_close.png" alt="" title="" /></a></div>
+    </div>
+    </div>
+
+    <div class="popup popup-profup">
+    <div class="content-block-login">
+      <h4>Be a member as DG Influencer</h4>
+      <div id="register_response"></div>
+       <!-- <div class="form_logo"><img src="images/crown.png" alt="" title="" /><h4>Dominion Position Chapel</h4></div> -->
+            <div class="loginform">
+              <form id="register_member" method="post">
+                <div class="col-md-12 col-sm-12">
+                  <input type="text" name="first_name" value="" class="form_input required col-md-6 col-sm-6" placeholder="Your Name" />               
+                <input type="text" name="ministry" value="" class="form_input required" placeholder="Ministry / Organization" />
+                <input type="text" name="leadership_position" value="" class="form_input required" placeholder="College / University" />
+                <input type="text" name="ministry" value="" class="form_input required" placeholder="Ministry / Organization" />
+                <input type="email" name="email" value="" class="form_input required" placeholder="Email" />
+                <input type="text" name="address" value="" class="form_input required" placeholder="Address" />
+                <input type="text" name="city" value="" class="form_input required" placeholder="City" />
+                <input type="text" name="country" value="" class="form_input required" placeholder="Country" />
+                <input type="submit" name="submit" class="form_submit" id="submit" value="Create Account" />
+              </form>
+              <!--<div class="signup_social">
+                  <a href="#" class="signup_facebook">FACEBOOK</a>
+                  <a href="#" class="signup_twitter">TWITTER</a>            
+              </div>-->
+               <div class="signup_bottom">
+                  <p>Already have account?</p>
+                  <a href="#" data-popup=".popup-login" class="open-popup">Login</a>            
+              </div>
+            </div>
+      <div class="close_loginpopup_button"><a href="#" class="close-popup"><img src="images/icons/white/menu_close.png" alt="" title="" /></a></div>
+    </div>
+    </div>
+    <div class="popup popup-investorup">
+    <div class="content-block-login">
+      <h4>Be a member as DG Investor</h4>
+      <div id="register_response"></div>
+       <!-- <div class="form_logo"><img src="images/crown.png" alt="" title="" /><h4>Dominion Position Chapel</h4></div> -->
+            <div class="loginform">
+              <form id="register_member" method="post">
+                <div class="col-md-12 col-sm-12">
+                <input type="text" name="first_name" value="" class="form_input required col-md-6 col-sm-6" placeholder="Your Name" />
+                <input type="text" name="ministry" value="" class="form_input required" placeholder="Profession" />
+                <input type="text" name="ministry" value="" class="form_input required" placeholder="Ministry / Organization" />
+                <input type="email" name="email" value="" class="form_input required" placeholder="Email" />
+                <input type="text" name="address" value="" class="form_input required" placeholder="Address" />
+                <input type="text" name="city" value="" class="form_input required" placeholder="City" />
+                <input type="text" name="country" value="" class="form_input required" placeholder="Country" />
+            
+                <input type="submit" name="submit" class="form_submit" id="submit" value="Create Account" />
+              </form>
+              <!--<div class="signup_social">
+                  <a href="#" class="signup_facebook">FACEBOOK</a>
+                  <a href="#" class="signup_twitter">TWITTER</a>            
+              </div>-->
+               <div class="signup_bottom">
+                  <p>Already have account?</p>
+                  <a href="#" data-popup=".popup-login" class="open-popup">Login</a>            
               </div>
             </div>
       <div class="close_loginpopup_button"><a href="#" class="close-popup"><img src="images/icons/white/menu_close.png" alt="" title="" /></a></div>

@@ -39,6 +39,23 @@ var EmployeeNewsService = function() {
         return $.ajax({url: url + "news/get_news_detail/" + id});
     }
 
+    this.getallinitiatives = function() {
+		var request = url + "initiatives/get_initiatives" ;
+        return $.ajax({url: request});
+    }
+    this.getInitiativeDetail = function(id) {
+		var request = url + "initiatives/get_news_detail" ;
+        return $.ajax({url: url + "initiatives/get_initiative_detail/" + id});
+    }
+    this.getallarms = function() {
+		var request = url + "arms/get_arms" ;
+        return $.ajax({url: request});
+    }
+    this.getArmsDetail = function(id) {
+		var request = url + "arms/get_news_detail" ;
+        return $.ajax({url: url + "arms/get_arms_detail/" + id});
+    }
+
 
 }
 
@@ -96,7 +113,131 @@ function get_news_description(id)
 		if(data.message == "success")
 		{
 			// $( "#news-of-icpak" ).addClass( "display_block" );
-			$( "#news_detail" ).html( data.result );
+			$( "#initiative_detail" ).html( data.result );
+			$( "#loader-wrapper" ).addClass( "display_none" );
+
+		}
+		
+		else
+		{
+
+		}
+	});
+}
+
+function get_initiative_items()
+{
+	$( "#loader-wrapper" ).removeClass( "display_none" );
+	var service = new EmployeeNewsService();
+	service.initialize().done(function () {
+		console.log("Service initialized");
+	});
+	
+	//get client's credentials
+	
+	service.getallinitiatives().done(function (employees) {
+		var data = jQuery.parseJSON(employees);
+		
+		if(data.message == "success")
+		{
+			// $( "#news-of-icpak" ).addClass( "display_block" );
+			// alert(data.result);
+			$( "#initiatives_list" ).html(data.result);
+			$( "#loader-wrapper" ).addClass( "display_none" );
+			// window.localStorage.setItem("initiative_history", data.result);
+			// window.localStorage.setItem("total_news", data.total_received);
+		}
+		
+		else
+		{
+
+		}
+	});
+}
+
+
+function get_initiatives_description(id)
+{
+	$( "#loader-wrapper" ).removeClass( "display_none" );
+	var service = new EmployeeNewsService();
+	service.initialize().done(function () {
+		console.log("Service initialized");
+	});
+	
+	//get client's credentials
+	// var id = getURLParameter('id');
+	// alert(id);
+	
+	service.getInitiativeDetail(id).done(function (employees) {
+		var data = jQuery.parseJSON(employees);
+		
+		if(data.message == "success")
+		{
+			$( "#initiative_detail" ).html( data.result );
+			$( "#loader-wrapper" ).addClass( "display_none" );
+
+		}
+		
+		else
+		{
+
+		}
+	});
+}
+
+
+
+function get_arms_items()
+{
+	$( "#loader-wrapper" ).removeClass( "display_none" );
+	var service = new EmployeeNewsService();
+	service.initialize().done(function () {
+		console.log("Service initialized");
+	});
+	
+	//get client's credentials
+	
+	service.getallarms().done(function (employees) {
+		var data = jQuery.parseJSON(employees);
+		
+		if(data.message == "success")
+		{
+			// $( "#news-of-icpak" ).addClass( "display_block" );
+
+			$( "#arms_list" ).html(data.result);
+			$( "#loader-wrapper" ).addClass( "display_none" );
+			// window.localStorage.setItem("initiative_history", data.result);
+			// window.localStorage.setItem("total_news", data.total_received);
+		}
+		
+		else
+		{
+
+		}
+	});
+}
+
+
+function get_arms_description(id)
+{
+	$( "#loader-wrapper" ).removeClass( "display_none" );
+	var service = new EmployeeNewsService();
+	service.initialize().done(function () {
+		console.log("Service initialized");
+	});
+	
+	//get client's credentials
+	// var id = getURLParameter('id');
+	// alert(id);
+	
+	service.getArmsDetail(id).done(function (employees) {
+		var data = jQuery.parseJSON(employees);
+		
+		if(data.message == "success")
+		{
+			// $( "#news-of-icpak" ).addClass( "display_block" );
+
+			$( "#arms_detail" ).html( data.result );
 			$( "#loader-wrapper" ).addClass( "display_none" );
 
 		}
