@@ -397,7 +397,14 @@ padding:5px 0 0 0;
 font-size:13px;
 font-weight:300;
 }
-.logo h2{color:#fff;font-size: 2em;}
+.logo h2{color:#a9a9a9;font-size: 2em; padding-top: 4em;}
+
+h3.motto{
+    color: #a9a9a9;
+    font-size: 1.5em;
+    font-style: italic;
+    padding-top: 11em;
+}
 /*5-2. FOOTER TOOLBAR */
 
 .toolbar-inner{
@@ -697,13 +704,13 @@ float:left;
 clear:both;
 }
 ul.features_list_detailed li{
-padding:5px 0 10px 0;
-margin:0 0 10px 0;
-display:block;
-width:100%;
-float:left;
-clear:both;
-border-bottom:1px #ddd solid;
+border-bottom: 1px solid #ddd;
+clear: both;
+display: block;
+float: left;
+margin: 0 0 3px;
+padding: 8px 0 0;
+width: 100%;
 }
 ul.features_list_detailed li .feat_small_icon{
 width:15%;
@@ -717,7 +724,7 @@ padding:0 0 0 3%;
 ul.features_list_detailed li .view_more{
 width:10%;
 float:left;
-margin:25px 0 0 5%;
+margin:25px 0px 0px 4%;
 }
 ul.features_list_detailed li .view_more img{
 display:block;
