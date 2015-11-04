@@ -495,3 +495,12 @@ function load_messages()
 	var messages = window.localStorage.getItem("news_history");
 	$("#icpak_news").html(messages);
 }
+
+function change_to_arms()
+{
+	
+	get_arms_items();
+
+	window.location.href = "arms.html";
+
+}

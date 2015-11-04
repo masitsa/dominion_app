@@ -55,6 +55,10 @@ var EmployeeNewsService = function() {
 		var request = url + "arms/get_news_detail" ;
         return $.ajax({url: url + "arms/get_arms_detail/" + id});
     }
+    this.getbibleschooldetail = function() {
+		var request = url + "bible_school/get_bible_school_detail" ;
+        return $.ajax({url: request});
+    }
 
 
 }
@@ -208,6 +212,35 @@ function get_arms_items()
 			$( "#loader-wrapper" ).addClass( "display_none" );
 			// window.localStorage.setItem("initiative_history", data.result);
 			// window.localStorage.setItem("total_news", data.total_received);
+		}
+		
+		else
+		{
+
+		}
+	});
+}
+
+function bible_school_detail()
+{
+	$( "#loader-wrapper" ).removeClass( "display_none" );
+	var service = new EmployeeNewsService();
+	service.initialize().done(function () {
+		console.log("Service initialized");
+	});
+	
+	//get client's credentials
+	
+	service.getbibleschooldetail().done(function (employees) {
+		var data = jQuery.parseJSON(employees);
+		
+		if(data.message == "success")
+		{
+			// $( "#news-of-icpak" ).addClass( "display_block" );
+
+			$( "#bible_school_detail" ).html(data.result);
+			$( "#loader-wrapper" ).addClass( "display_none" );
+			window.localStorage.setItem("bible_school_detail", data.result);
 		}
 		
 		else

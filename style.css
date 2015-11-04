@@ -1585,8 +1585,8 @@ line-height:28px;
     position: relative;
     left: 50%;
     top: 50%;
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     margin: -75px 0 0 -75px;
 	-moz-border-radius:50%; /* Firefox */
 	-webkit-border-radius:50%; /* Safari and chrome */
@@ -1610,7 +1610,7 @@ line-height:28px;
 	-khtml-border-radius:50%; /* Linux browsers */
 	border-radius:50%; /* CSS3 */
     border: 3px solid transparent;
-    border-top-color: #000;
+    border-top-color: #fdd835;
     -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
       animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
 }
@@ -1627,7 +1627,7 @@ line-height:28px;
 	-khtml-border-radius:50%; /* Linux browsers */
 	border-radius:50%; /* CSS3 */
     border: 3px solid transparent;
-    border-top-color: #C29D07;
+    border-top-color: #9c27b0;
     -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
       animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
 }
