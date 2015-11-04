@@ -405,6 +405,44 @@ h3.motto{
     font-style: italic;
     padding-top: 11em;
 }
+
+/*===============================================*/
+/* 5. INNER NAVIGATION POPUP AND FOOTER TOOLBAR */
+/*===============================================*/
+/* 5-1. INNER NAVIGATION */
+
+.inner-nav{
+padding:5px 0 0 0px;
+width:100%;
+}
+.inner-nav ul{
+width:100%;
+list-style:none;
+padding:0px;
+margin:0px;
+display:block;
+}
+.inner-nav ul li{
+width:93%;
+list-style:none;
+padding:0px 0;
+margin:2%;
+display:inline-block;
+text-align:center;
+}
+.inner-nav ul li img{
+display:inline-block;
+max-width:12%;
+}
+.inner-nav ul li span{
+display:block;
+text-align:center;
+padding:5px 0 0 0;
+}
+.inner-nav ul li a{
+font-size: 16px;
+font-weight: 300;
+}
 /*5-2. FOOTER TOOLBAR */
 
 .toolbar-inner{

@@ -70,6 +70,25 @@ border-bottom:1px #692c46 solid;
 /*color:#c6a0b1;*/
 color: #fff;
 }
+
+/*===============================================*/
+/* INNER NAV LINKS */
+/*===============================================*/	
+.inner-nav ul li{
+background: #9c27b0;
+border-bottom:1px #692c46 solid;
+}
+
+#empty{
+	background: #7b1fa2;
+	border-bottom:1px #7b1fa2 solid;
+}
+
+
+.inner-nav ul li a{
+/*color:#c6a0b1;*/
+color: #fff;
+}
 /*===============================================*/
 /* POPUPS AND TOOLBAR */
 /*===============================================*/	
