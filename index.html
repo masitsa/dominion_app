@@ -38,15 +38,13 @@
 
                   <nav class="user-nav">
                     <ul>
-                      <li><a href="blog.html" class="close-panel" onClick="get_news_items()"><img src="images/icons/white/blog.png" alt="" title="" /><span>
-                      News</span></a></li>
-                      <li><a href="events.html" class="close-panel" onClick="get_event_items()"><img src="images/icons/white/toogle.png" alt="" title="" /><span>Events</span></a></li>
-                      <li><a href="blog.html" class="close-panel" onClick="get_news_items()"><img src="images/icons/white/prayer.png" alt="" title="" /><span>
-                      Devotions</span></a></li>
-                      <li><a href="5-minute-church.html" class="close-panel" onClick="get_sermons()"><img src="images/icons/white/sermon.png" alt="" title="" /><span>
-                      5 min church</span></a></li>
-                      <li><a href="blog.html" class="close-panel" onClick="get_news_items()"><img src="images/icons/white/group.png" alt="" title="" /><span>
-                      Groups</span></a></li>
+                      <li><a href="arms.html" class="close-panel" onClick="get_arms_items()"><img src="images/icons/white/blog.png" alt="" title="" /><span>
+                      Home</span></a></li>
+                      <li><a href="5-minute-church.html" class="close-panel" onClick="get_sermons()"><img src="images/icons/white/prayer.png" alt="" title="" /><span>5 min church</span></a></li>
+                      <li><a href="blog.html" class="close-panel" onClick="get_news_items()"><img src="images/icons/white/bible.png" alt="" title="" /><span>
+                      Bible School</span></a></li>
+                      <li><a href="initiatives.html" class="close-panel" onClick="get_sermons()"><img src="images/icons/white/project.png" alt="" title="" /><span>
+                      Dominion Projects</span></a></li>
                       <span id="profile_icon"></span>
                       <li><a href="contact.html" class="close-panel"><img src="images/icons/white/contact.png" alt="" title="" /><span>Contact</span></a></li>
                       <!--<li><a href="resources.html" class="close-panel"onClick="get_resources_items()"><img src="images/icons/white/download.png" alt="" title="" /><span>Resourses</span></a></li>
@@ -96,7 +94,7 @@
             <div class="page-content">
             	<div class="logo">
                 	<img src="images/crown.png" alt="" title="" />
-                    <h2>Dominion</h2>
+                    <h2>DOMINION</h2>
                     <h3 class="motto">"Reign In Life"</h3>
                 </div> 
 
@@ -109,11 +107,11 @@
         <div class="toolbar">
               <div class="toolbar-inner">
               <ul class="toolbar_icons">
-              <li id="login_icon"><a href="#"  ><img src="images/icons/white/home.png" alt="" title="" /><span>Home</span></a> </li>
+              <li ><a href="arms.html"  onclick="get_arms_items();"><img src="images/icons/white/home.png" alt="" title="" /><span>Home</span></a> </li>
               <!-- <li><a href="photos.html"><img src="images/icons/white/photos.png" alt="" title="" /></a></li> -->
               <li><a href="5-minute-church.html" onClick="get_sermons()"><img src="images/icons/white/prayer.png" alt="" title="" /><span>5 min church</span></a></li>
               <li class="menuicon"><a href="#" data-popup=".popup-menu" class="open-popup"><img src="images/icons/white/menu.png" alt="" title="" /><span>Menu</span></a></li>
-              <li><a href="blog.html" onClick="get_news_items()"><img src="images/icons/white/bible.png" alt="" title="" /><span>Bible School</span></a></li>
+              <li><a href="bible-school.html" onClick="bible_school_detail()"><img src="images/icons/white/bible.png" alt="" title="" /><span>Bible School</span></a></li>
               <li><a href="initiatives.html" onClick="get_initiative_items()" ><img src="images/icons/white/project.png" alt="" title="" /><span> Projects </span></a></li>
               </div>  
         </div>
@@ -131,7 +129,7 @@
                   
                   <li><a href="5-minute-church.html" class="close-popup" onClick="get_sermons()"><img src="images/icons/white/prayer.png" alt="" title="" /><span>5 min church</span></a></li>
                   <li id="empty"></li>
-                  <li><a href="bible-school.html" class="close-popup" onClick="get_bible_school()"><img src="images/icons/white/bible.png" alt="" title="" /><span>Bible School</span></a></li>
+                  <li><a href="bible-school.html" class="close-popup" onClick="bible_school_detail()"><img src="images/icons/white/bible.png" alt="" title="" /><span>Bible School</span></a></li>
                  
                   <!--<li id="pro_social" class="display_none"><a href="pro-social.html" class="close-popup" onClick="get_social_user()"><img src="images/icons/white/docs.png" alt="" title="" onClick="get_social_forum()" /><span>Pro social</span></a></li>
                   <li id="cpd_live" class="display_none"><a href="videos.html" class="close-popup" onClick="get_streaming_event()"><img src="images/icons/white/video.png" alt="" title="" /><span>ICPAK Videos</span></a></li>

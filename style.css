@@ -397,7 +397,11 @@ padding:5px 0 0 0;
 font-size:13px;
 font-weight:300;
 }
-.logo h2{color:#a9a9a9;font-size: 2em; padding-top: 4em;}
+.logo h2{
+  color: #7b1fa2;
+    font-size: 3em;
+    padding-top: 2em;
+}
 
 h3.motto{
     color: #a9a9a9;
@@ -447,7 +451,7 @@ font-weight: 300;
 
 .toolbar-inner{
   position: absolute;
-  background: #9c27b0 !important;
+  background: #7b1fa2 !important;
   left: 0;
   top: 0px;
   z-index:99999;
@@ -510,7 +514,7 @@ width:20%; margin:0 1%;
 -webkit-border-radius:250px;-moz-border-radius:250px;border-radius:250px;
 }
 ul.toolbar_icons li img{
-max-width:65%;
+max-width:55%;
 margin:10px 0 0 0;
 }
 ul.toolbar_icons li.menuicon img{
@@ -674,7 +678,7 @@ height:70px;
 .nav_left_logo{
 float:left;
 width:40%;
-padding:0 0 0 5%;
+padding:5px 0 0 5%;
 }
 .nav_left_logo a img{
 display:inline-block;
