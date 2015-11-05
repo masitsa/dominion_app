@@ -9,18 +9,20 @@ var MembershipService = function() {
         return deferred.promise();
     }
 
-    this.registerInfluencer = function() {
-		var request = url + "news/get_news" ;
-        return $.ajax({url: request});
+    this.registerInfluencer = function(form_data) {
+		var request = url + "login/register_influencer";
+        return $.ajax({url: request, data: form_data, type: 'POST', processData: false,contentType: false});
     }
-    this.registerProfessional = function(id) {
-		var request = url + "news/get_news_detail" ;
-        return $.ajax({url: url + "news/get_news_detail/" + id});
+    this.registerProfessional = function(form_data) {
+		// var request = url + "news/get_news_detail" ;
+  //       return $.ajax({url: url + "news/get_news_detail/" + id});
+  		var request = url + "login/register_professional";
+        return $.ajax({url: request, data: form_data, type: 'POST', processData: false,contentType: false});
     }
 
-    this.registerInfluencer = function() {
-		var request = url + "initiatives/get_initiatives" ;
-        return $.ajax({url: request});
+    this.registerInvestor = function(form_data) {
+		var request = url + "login/register_investor";
+        return $.ajax({url: request, data: form_data, type: 'POST', processData: false,contentType: false});
     }
 }
 
@@ -36,33 +38,47 @@ $(document).on("submit","form#register_influencer",function(e)
 {
 	e.preventDefault();
 	
+	//get form values
+	var form_data = new FormData(this);
+		
+	$("#influencer_response").html('').fadeIn( "slow");
 	$( "#loader-wrapper" ).removeClass( "display_none" );
-
-	var service = new MembershipService();
-	service.initialize().done(function () {
-		console.log("Service initialized");
-	});
 	
-	//get client's credentials
+	//check if there is a network connection
+	var connection = true;//is_connected();
 	
-	service.registerInfluencer().done(function (employees) {
-		var data = jQuery.parseJSON(employees);
+	if(connection === true)
+	{
+		var service = new MembershipService();
+		service.initialize().done(function () {
+			console.log("Service initialized");
+		});
 		
-		if(data.message == "success")
-		{
-			// $( "#news-of-icpak" ).addClass( "display_block" );
-			$( "#influencer_response" ).html( data.result );
+		
+		service.registerProfessional(form_data).done(function (employees) {
+			var data = jQuery.parseJSON(employees);
+			
+			if(data.message == "success")
+			{
+				//set local variables for future auto login
+				$("#influencer_response").html('<div class="alert alert-success center-align">'+"You have been successfully registered this initiative"+'</div>').fadeIn( "slow");
+				$( "#loader-wrapper" ).addClass( "display_none" );
+			}
+			else
+			{
+				$("#influencer_response").html('<div class="alert alert-success center-align">'+"Something went wrong. Please try again"+'</div>').fadeIn( "slow");
+				$( "#loader-wrapper" ).addClass( "display_none" );
+			}
+			
 			$( "#loader-wrapper" ).addClass( "display_none" );
-			/*window.localStorage.setItem("news_history", data.result);
-			window.localStorage.setItem("total_news", data.total_received);*/
-		}
-		
-		else
-		{
-
-		}
-	});
-	// get_profile_details();
+        });
+	}
+	
+	else
+	{
+		$("#influencer_response").html('<div class="alert alert-danger center-align">'+"No internet connection - please check your internet connection then try again"+'</div>').fadeIn( "slow");
+		$( "#loader-wrapper" ).addClass( "display_none" );
+	}
 	return false;
 });
 
@@ -72,33 +88,47 @@ $(document).on("submit","form#register_professional",function(e)
 {
 	e.preventDefault();
 	
+	//get form values
+	var form_data = new FormData(this);
+		
+	$("#professional_response").html('').fadeIn( "slow");
 	$( "#loader-wrapper" ).removeClass( "display_none" );
-
-	var service = new MembershipService();
-	service.initialize().done(function () {
-		console.log("Service initialized");
-	});
 	
-	//get client's credentials
+	//check if there is a network connection
+	var connection = true;//is_connected();
 	
-	service.registerInfluencer().done(function (employees) {
-		var data = jQuery.parseJSON(employees);
+	if(connection === true)
+	{
+		var service = new MembershipService();
+		service.initialize().done(function () {
+			console.log("Service initialized");
+		});
 		
-		if(data.message == "success")
-		{
-			// $( "#news-of-icpak" ).addClass( "display_block" );
-			$( "#professional_response" ).html( data.result );
+		
+		service.registerProfessional(form_data).done(function (employees) {
+			var data = jQuery.parseJSON(employees);
+			
+			if(data.message == "success")
+			{
+				//set local variables for future auto login
+				$("#professional_response").html('<div class="alert alert-success center-align">'+"You have been successfully registered this initiative"+'</div>').fadeIn( "slow");
+				$( "#loader-wrapper" ).addClass( "display_none" );
+			}
+			else
+			{
+				$("#professional_response").html('<div class="alert alert-warning center-align">'+"Something went wrong. Please try again"+'</div>').fadeIn( "slow");
+				$( "#loader-wrapper" ).addClass( "display_none" );
+			}
+			
 			$( "#loader-wrapper" ).addClass( "display_none" );
-			/*window.localStorage.setItem("news_history", data.result);
-			window.localStorage.setItem("total_news", data.total_received);*/
-		}
-		
-		else
-		{
-
-		}
-	});
-	// get_profile_details();
+        });
+	}
+	
+	else
+	{
+		$("#professional_response").html('<div class="alert alert-danger center-align">'+"No internet connection - please check your internet connection then try again"+'</div>').fadeIn( "slow");
+		$( "#loader-wrapper" ).addClass( "display_none" );
+	}
 	return false;
 });
 
@@ -108,32 +138,46 @@ $(document).on("submit","form#register_investor",function(e)
 {
 	e.preventDefault();
 	
+	//get form values
+	var form_data = new FormData(this);
+		
+	$("#investor_response").html('').fadeIn( "slow");
 	$( "#loader-wrapper" ).removeClass( "display_none" );
-
-	var service = new MembershipService();
-	service.initialize().done(function () {
-		console.log("Service initialized");
-	});
 	
-	//get client's credentials
+	//check if there is a network connection
+	var connection = true;//is_connected();
 	
-	service.registerInfluencer().done(function (employees) {
-		var data = jQuery.parseJSON(employees);
+	if(connection === true)
+	{
+		var service = new MembershipService();
+		service.initialize().done(function () {
+			console.log("Service initialized");
+		});
 		
-		if(data.message == "success")
-		{
-			// $( "#news-of-icpak" ).addClass( "display_block" );
-			$( "#investor_response" ).html( data.result );
+		
+		service.registerProfessional(form_data).done(function (employees) {
+			var data = jQuery.parseJSON(employees);
+			
+			if(data.message == "success")
+			{
+				//set local variables for future auto login
+				$("#investor_response").html('<div class="alert alert-success center-align">'+"You have been successfully registered this initiative"+'</div>').fadeIn( "slow");
+				$( "#loader-wrapper" ).addClass( "display_none" );
+			}
+			else
+			{
+				$("#investor_response").html('<div class="alert alert-warning center-align">'+"Something went wrong. Please try again"+'</div>').fadeIn( "slow");
+				$( "#loader-wrapper" ).addClass( "display_none" );
+			}
+			
 			$( "#loader-wrapper" ).addClass( "display_none" );
-			/*window.localStorage.setItem("news_history", data.result);
-			window.localStorage.setItem("total_news", data.total_received);*/
-		}
-		
-		else
-		{
-
-		}
-	});
-	// get_profile_details();
+        });
+	}
+	
+	else
+	{
+		$("#investor_response").html('<div class="alert alert-danger center-align">'+"No internet connection - please check your internet connection then try again"+'</div>').fadeIn( "slow");
+		$( "#loader-wrapper" ).addClass( "display_none" );
+	}
 	return false;
 });
