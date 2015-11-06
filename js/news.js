@@ -117,7 +117,7 @@ function get_news_description(id)
 		if(data.message == "success")
 		{
 			// $( "#news-of-icpak" ).addClass( "display_block" );
-			$( "#initiative_detail" ).html( data.result );
+			$( "#news_detail" ).html( data.result );
 			$( "#loader-wrapper" ).addClass( "display_none" );
 
 		}
