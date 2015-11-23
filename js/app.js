@@ -351,7 +351,7 @@ $$(document).on('pageInit', '.page[data-page="investors"]', function (e)
 	
 	//get client's credentials
 	
-	service.get_influencers().done(function (employees) {
+	service.get_investors().done(function (employees) {
 		var data = jQuery.parseJSON(employees);
 		
 		if(data.message == "success")
