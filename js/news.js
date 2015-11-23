@@ -30,6 +30,21 @@ var EmployeeNewsService = function() {
         return $.ajax({url: url + "/" + id});
     }
 
+    this.get_influencers = function() {
+		var request = url + "news/get_blog_items/25" ;
+        return $.ajax({url: request});
+    }
+
+    this.get_professionals = function() {
+		var request = url + "news/get_blog_items/26" ;
+        return $.ajax({url: request});
+    }
+
+    this.get_investors = function() {
+		var request = url + "news/get_blog_items/27" ;
+        return $.ajax({url: request});
+    }
+
     this.getallLatesNews = function() {
 		var request = url + "news/get_news" ;
         return $.ajax({url: request});

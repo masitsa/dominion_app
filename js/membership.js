@@ -63,6 +63,9 @@ $(document).on("submit","form#register_influencer",function(e)
 				//set local variables for future auto login
 				$("#influencer_response").html('<div class="alert alert-success center-align">'+"You have been successfully registered this initiative"+'</div>').fadeIn( "slow");
 				$( "#loader-wrapper" ).addClass( "display_none" );
+				
+				myApp.closeModal('.popup-influenceup');
+				mainView.router.loadPage('influencers.html');
 			}
 			else
 			{
@@ -113,6 +116,9 @@ $(document).on("submit","form#register_professional",function(e)
 				//set local variables for future auto login
 				$("#professional_response").html('<div class="alert alert-success center-align">'+"You have been successfully registered this initiative"+'</div>').fadeIn( "slow");
 				$( "#loader-wrapper" ).addClass( "display_none" );
+				
+				myApp.closeModal('.popup-profup');
+				mainView.router.loadPage('professionals.html');
 			}
 			else
 			{
@@ -163,6 +169,9 @@ $(document).on("submit","form#register_investor",function(e)
 				//set local variables for future auto login
 				$("#investor_response").html('<div class="alert alert-success center-align">'+"You have been successfully registered this initiative"+'</div>').fadeIn( "slow");
 				$( "#loader-wrapper" ).addClass( "display_none" );
+				
+				myApp.closeModal('.popup-investorup');
+				mainView.router.loadPage('investors.html');
 			}
 			else
 			{
