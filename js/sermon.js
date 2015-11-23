@@ -125,7 +125,7 @@ function get_sermons_description(id)
 	
 	//get client's credentials
 	// var id = getURLParameter('id');
-	// alert(id);
+	 // alert(id);
 	
 	service.getSermonDetail(id).done(function (employees) {
 		var data = jQuery.parseJSON(employees);

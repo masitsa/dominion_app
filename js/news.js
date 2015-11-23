@@ -58,9 +58,9 @@ var EmployeeNewsService = function() {
 		var request = url + "initiatives/get_initiatives" ;
         return $.ajax({url: request});
     }
-    this.getInitiativeDetail = function(id) {
+    this.getInitiativeDetail = function(id,parent_id) {
 		var request = url + "initiatives/get_news_detail" ;
-        return $.ajax({url: url + "initiatives/get_initiative_detail/" + id});
+        return $.ajax({url: url + "initiatives/get_initiative_detail/"+id+"/"+parent_id});
     }
     this.getallarms = function() {
 		var request = url + "arms/get_arms" ;
@@ -69,6 +69,10 @@ var EmployeeNewsService = function() {
     this.getArmsDetail = function(id) {
 		var request = url + "arms/get_news_detail" ;
         return $.ajax({url: url + "arms/get_arms_detail/" + id});
+    }
+    this.getInitativePage = function(id) {
+		var request = url + "initiatives/get_initiative_page" ;
+        return $.ajax({url: url + "initiatives/get_initiative_page/" + id});
     }
     this.getbibleschooldetail = function() {
 		var request = url + "bible_school/get_bible_school_detail" ;
@@ -175,7 +179,7 @@ function get_initiative_items()
 }
 
 
-function get_initiatives_description(id)
+function get_initiatives_description(id,parent_id)
 {
 	$( "#loader-wrapper" ).removeClass( "display_none" );
 	var service = new EmployeeNewsService();
@@ -185,13 +189,14 @@ function get_initiatives_description(id)
 	
 	//get client's credentials
 	// var id = getURLParameter('id');
-	// alert(id);
 	
-	service.getInitiativeDetail(id).done(function (employees) {
+	
+	service.getInitiativeDetail(id,parent_id).done(function (employees) {
 		var data = jQuery.parseJSON(employees);
 		
 		if(data.message == "success")
 		{
+			
 			$( "#initiative_detail" ).html( data.result );
 			$( "#loader-wrapper" ).addClass( "display_none" );
 
@@ -286,6 +291,37 @@ function get_arms_description(id)
 			// $( "#news-of-icpak" ).addClass( "display_block" );
 
 			$( "#arms_detail" ).html( data.result );
+			$( "#loader-wrapper" ).addClass( "display_none" );
+
+		}
+		
+		else
+		{
+
+		}
+	});
+}
+
+function get_initiative_page(id)
+{
+	$( "#loader-wrapper" ).removeClass( "display_none" );
+	var service = new EmployeeNewsService();
+	service.initialize().done(function () {
+		console.log("Service initialized");
+	});
+	
+	//get client's credentials
+	// var id = getURLParameter('id');
+	// alert(id);
+	
+	service.getInitativePage(id).done(function (employees) {
+		var data = jQuery.parseJSON(employees);
+		
+		if(data.message == "success")
+		{
+			// $( "#news-of-icpak" ).addClass( "display_block" );
+			
+			$( "#initiative_page" ).html( data.result );
 			$( "#loader-wrapper" ).addClass( "display_none" );
 
 		}
