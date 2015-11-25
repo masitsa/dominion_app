@@ -38,16 +38,18 @@
 
                   <nav class="user-nav">
                     <ul>
-                      <li><a href="arms.html" class="close-panel" onClick="get_arms_items()"><img src="images/icons/white/blog.png" alt="" title="" /><span>
+                      <li><a href="arms.html" class="close-panel" onClick="get_arms_items()"><img src="images/icons/white/home.png" alt="" title="" /><span>
                       Home</span></a></li>
                       <li><a href="5-minute-church.html" class="close-panel" onClick="get_sermons()"><img src="images/icons/white/prayer.png" alt="" title="" /><span>5 min church</span></a></li>
-                      <li><a href="blog.html" class="close-panel" onClick="get_news_items()"><img src="images/icons/white/bible.png" alt="" title="" /><span>
+                      <li><a href="blog.html" class="close-panel" onClick="get_news_items()"><img src="images/icons/white/graduation.png" alt="" title="" /><span>
                       Bible School</span></a></li>
                       <li><a href="initiatives.html" class="close-panel" onClick="get_sermons()"><img src="images/icons/white/project.png" alt="" title="" /><span>
                       Dominion Projects</span></a></li>
+                      <li><a href="membership.html" class="close-popup" onClick="get_event_items()"><img src="images/icons/white/group.png" alt="" title="" /><span>
+                      Forums</span></a></li>
                       <span id="profile_icon"></span>
-                      <li><a href="contact.html" class="close-panel"><img src="images/icons/white/contact.png" alt="" title="" /><span>Contact</span></a></li>
-                      <!--<li><a href="resources.html" class="close-panel"onClick="get_resources_items()"><img src="images/icons/white/download.png" alt="" title="" /><span>Resourses</span></a></li>
+                      <!--<li><a href="contact.html" class="close-panel"><img src="images/icons/white/contact.png" alt="" title="" /><span>Contact</span></a></li>
+                      <li><a href="resources.html" class="close-panel"onClick="get_resources_items()"><img src="images/icons/white/download.png" alt="" title="" /><span>Resourses</span></a></li>
                        <li><a href="index.html" class="close-panel"><img src="images/icons/white/lock.png" alt="" title="" /><span>Logout</span></a></li> -->
                     </ul>
                   </nav>
@@ -127,7 +129,7 @@
                   
                   <li><a href="5-minute-church.html" class="close-popup" onClick="get_sermons()"><img src="images/icons/white/prayer.png" alt="" title="" /><span>5 min church</span></a></li>
                   <li id="empty"></li>
-                  <li><a href="bible-school.html" class="close-popup" onClick="bible_school_detail()"><img src="images/icons/white/bible.png" alt="" title="" /><span>Bible School</span></a></li>
+                  <li><a href="bible-school.html" class="close-popup" onClick="bible_school_detail()"><img src="images/icons/white/graduation.png" alt="" title="" /><span>Bible School</span></a></li>
                  
                   <!--<li id="pro_social" class="display_none"><a href="pro-social.html" class="close-popup" onClick="get_social_user()"><img src="images/icons/white/docs.png" alt="" title="" onClick="get_social_forum()" /><span>Pro social</span></a></li>
                   <li id="cpd_live" class="display_none"><a href="videos.html" class="close-popup" onClick="get_streaming_event()"><img src="images/icons/white/video.png" alt="" title="" /><span>ICPAK Videos</span></a></li>
@@ -146,7 +148,7 @@
                   
                   <li><a href="#" data-popup=".popup-social" class="open-popup"><img src="images/icons/white/heart.png" alt="" title="" /><span>Social</span></a></li>
                   <!-- <li><a href="#" data-popup=".popup-login" class="open-popup"><img src="images/icons/white/lock.png" alt="" title="" /><span>Login</span></a></li> -->
-                  <li><a href="tel:+254715603362" class="close-popup external"><img src="images/icons/white/phone.png" alt="" title="" /><span>Call Now</span></a></li>
+                  <li><a href="tel:+254790309485" class="close-popup external"><img src="images/icons/white/sms.png" alt="" title="" /><span>Send Text Now</span></a></li>
                   <li><a href="contact.html" class="close-popup"><img src="images/icons/white/contact.png" alt="" title="" /><span>Contact</span></a></li>
                 </ul>
               </nav> 
@@ -192,9 +194,13 @@
             <form id="register_influencer" method="post">
                 <div class="col-md-12 col-sm-12">
 					<input type="text" name="name" value="" class="form_input required col-md-6 col-sm-6" placeholder="Your Name" />
-					<input type="text" name="ministry" value="" class="form_input required" placeholder="Ministry / Organization" />
+					<input type="date" name="dob" value="" class="form_input required" placeholder="" />
+          <select class="form_input">
+            <option value="0">Select your gender</option>
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+          </select>
 					<input type="text" name="leadership_position" value="" class="form_input required" placeholder="Leaderhip position" />
-					<input type="text" name="professional_body" value="" class="form_input required" placeholder="Ministry or professional body you belong to" />
 					<input type="email" name="email" value="" class="form_input required" placeholder="Email" />
 					<input type="text" name="phone" value="" class="form_input required" placeholder="Phone" />
 					<input type="text" name="address" value="" class="form_input required" placeholder="Address" />
@@ -222,10 +228,13 @@
             <form id="register_professional" method="post">
                 <div class="col-md-12 col-sm-12">
 			           <input type="text" name="name" value="" class="form_input required col-md-6 col-sm-6" placeholder="Your Name" />
-                  <input type="text" name="ministry" value="" class="form_input required" placeholder="Ministry / Organization" />
-                  <input type="text" name="leadership_position" value="" class="form_input required" placeholder="Profession" />
+                 <select class="form_input">
+                  <option value="0">Select your gender</option>
+                  <option value="1">Male</option>
+                  <option value="2">Female</option>
+                </select>
+                  <input type="date" name="dob" value="" class="form_input required" placeholder="" />
                   <input type="text" name="college" value="" class="form_input required" placeholder="College/university" />
-                  <input type="text" name="professional_body" value="" class="form_input required" placeholder="Ministry or professional body you belong to" />
                   <input type="email" name="email" value="" class="form_input required" placeholder="Email" />
                   <input type="text" name="address" value="" class="form_input required" placeholder="Address" />
                   <input type="text" name="city" value="" class="form_input required" placeholder="City" />
@@ -252,8 +261,12 @@
             <form id="investor_member" method="post">
                 <div class="col-md-12 col-sm-12">
 					<input type="text" name="first_name" value="" class="form_input required col-md-6 col-sm-6" placeholder="Your Name" />
-					<input type="text" name="leadership_position" value="" class="form_input required" placeholder="Profession" />
-					<input type="text" name="professional_body" value="" class="form_input required" placeholder="Ministry or professional body you belong to" />
+          <select class="form_input">
+            <option value="0">Select your gender</option>
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+          </select>
+					<input type="date" name="dob" value="" class="form_input required" placeholder="" />
 					<input type="email" name="email" value="" class="form_input required" placeholder="Email" />
 					<input type="text" name="address" value="" class="form_input required" placeholder="Address" />
 					<input type="text" name="city" value="" class="form_input required" placeholder="City" />
@@ -315,13 +328,12 @@
     <div class="popup popup-social">
       <div class="content-block">
         <h4>Follow Us</h4>
-        <p>Social icons solution that allows you share and increase your social popularity.</p>
+        <p>Please follow us on your social pages.</p>
         <ul class="social_share">
-        <li><a href="#" onclick="window.open('https://twitter.com/ICPAK', '_system', 'location=yes'); return false;"><img src="images/icons/white/twitter.png" alt="" title="" /></a></li>
-        <li><a href="#" onclick="window.open('https://www.facebook.com/pages/ICPAK/475586212492885?fref=ts', '_system', 'location=yes'); return false;"><img src="images/icons/white/facebook.png" alt="" title="" /></a></li>
+        <li><a href="#" onclick="window.open('https://twitter.com/dominiongeneration', '_system', 'location=yes'); return false;"><img src="images/icons/white/twitter.png" alt="" title="" /></a></li>
+        <li><a href="#" onclick="window.open('', '_system', 'location=yes'); return false;"><img src="images/icons/white/facebook.png" alt="" title="" /></a></li>
          
-        <li><a href="#"  onclick="window.open('https://plus.google.com/u/0/115211730761475303277/posts', '_system', 'location=yes'); return false;"><img src="images/icons/white/googleplus.png" alt="" title="" /></a></li>
-        <li><a href="#" onclick="window.open('https://www.linkedin.com/company/icpak', '_system', 'location=yes'); return false;" ><img src="images/icons/white/linkedin.png" alt="" title="" /></a></li>
+        <li><a href="#"  onclick="window.open('https://plus.google.com/u/0/108588380416058556632/posts', '_system', 'location=yes'); return false;"><img src="images/icons/white/googleplus.png" alt="" title="" /></a></li>
         </ul>
 
         
