@@ -24,12 +24,17 @@ var MembershipService = function() {
 		var request = url + "login/register_investor";
         return $.ajax({url: request, data: form_data, type: 'POST', processData: false,contentType: false});
     }
+
+    this.save_comment = function(form_data) {
+		var request = url + "news/save_comment";
+        return $.ajax({url: request, data: form_data, type: 'POST', processData: false,contentType: false});
+    }
 }
 
 //on page load if the user has logged in previously,
 //log them in automatically
 $(document).ready(function(){
-	//automatic_login();
+	//localStorage.clear();
 });
 
 
@@ -55,7 +60,7 @@ $(document).on("submit","form#register_influencer",function(e)
 		});
 		
 		
-		service.registerProfessional(form_data).done(function (employees) {
+		service.registerInfluencer(form_data).done(function (employees) {
 			var data = jQuery.parseJSON(employees);
 			
 			if(data.message == "success")
@@ -63,14 +68,16 @@ $(document).on("submit","form#register_influencer",function(e)
 				//set local variables for future auto login
 				$("#influencer_response").html('<div class="alert alert-success center-align">'+"You have been successfully registered this initiative"+'</div>').fadeIn( "slow");
 				$( "#loader-wrapper" ).addClass( "display_none" );
+				window.localStorage.setItem("influencer_email", data.result);
+				
+				myApp.closeModal('.popup-influenceup');
+				mainView.router.loadPage('influencers.html');
 			}
 			else
 			{
-				$("#influencer_response").html('<div class="alert alert-success center-align">'+"Something went wrong. Please try again"+'</div>').fadeIn( "slow");
+				$("#influencer_response").html(data.result).fadeIn( "slow");
 				$( "#loader-wrapper" ).addClass( "display_none" );
 			}
-			
-			$( "#loader-wrapper" ).addClass( "display_none" );
         });
 	}
 	
@@ -113,14 +120,16 @@ $(document).on("submit","form#register_professional",function(e)
 				//set local variables for future auto login
 				$("#professional_response").html('<div class="alert alert-success center-align">'+"You have been successfully registered this initiative"+'</div>').fadeIn( "slow");
 				$( "#loader-wrapper" ).addClass( "display_none" );
+				window.localStorage.setItem("professional_email", data.result);
+				
+				myApp.closeModal('.popup-profup');
+				mainView.router.loadPage('professionals.html');
 			}
 			else
 			{
-				$("#professional_response").html('<div class="alert alert-warning center-align">'+"Something went wrong. Please try again"+'</div>').fadeIn( "slow");
+				$("#professional_response").html(data.result).fadeIn( "slow");
 				$( "#loader-wrapper" ).addClass( "display_none" );
 			}
-			
-			$( "#loader-wrapper" ).addClass( "display_none" );
         });
 	}
 	
@@ -154,8 +163,7 @@ $(document).on("submit","form#register_investor",function(e)
 			console.log("Service initialized");
 		});
 		
-		
-		service.registerProfessional(form_data).done(function (employees) {
+		service.registerInvestor(form_data).done(function (employees) {
 			var data = jQuery.parseJSON(employees);
 			
 			if(data.message == "success")
@@ -163,20 +171,108 @@ $(document).on("submit","form#register_investor",function(e)
 				//set local variables for future auto login
 				$("#investor_response").html('<div class="alert alert-success center-align">'+"You have been successfully registered this initiative"+'</div>').fadeIn( "slow");
 				$( "#loader-wrapper" ).addClass( "display_none" );
+				window.localStorage.setItem("investor_email", data.result);
+				
+				myApp.closeModal('.popup-investorup');
+				mainView.router.loadPage('investors.html');
 			}
 			else
 			{
-				$("#investor_response").html('<div class="alert alert-warning center-align">'+"Something went wrong. Please try again"+'</div>').fadeIn( "slow");
+				$("#investor_response").html(data.result).fadeIn( "slow");
 				$( "#loader-wrapper" ).addClass( "display_none" );
 			}
 			
-			$( "#loader-wrapper" ).addClass( "display_none" );
         });
 	}
 	
 	else
 	{
 		$("#investor_response").html('<div class="alert alert-danger center-align">'+"No internet connection - please check your internet connection then try again"+'</div>').fadeIn( "slow");
+		$( "#loader-wrapper" ).addClass( "display_none" );
+	}
+	return false;
+});
+
+$$(document).on('pageInit', '.page[data-page="membership"]', function (e) 
+{
+	//check if influencer has signed up
+	var influencer_email = window.localStorage.getItem("influencer_email");
+	if((influencer_email == '') || (influencer_email == 'null') || (influencer_email == null))
+	{
+		$(".influencer_action").html('<a href="#" data-popup=".popup-influenceup" class="form_submit open-popup"> Register Here </a>').fadeIn( "slow");
+	}
+	
+	else
+	{
+		$(".influencer_action").html('<a href="influencers.html" class="form_submit"> View forum </a>').fadeIn( "slow");
+	}
+	
+	//check if professional has signed up
+	var professional_email = window.localStorage.getItem("professional_email");
+	if((professional_email == '') || (professional_email == 'null') || (professional_email == null))
+	{
+		$(".professionals_action").html('<a href="#" data-popup=".popup-profup" class="form_submit open-popup"> Register Here </a>').fadeIn( "slow");
+	}
+	
+	else
+	{
+		$(".professionals_action").html('<a href="professionals.html" class="form_submit"> View forum </a>').fadeIn( "slow");
+	}
+	
+	//check if investor has signed up
+	var investor_email = window.localStorage.getItem("investor_email");
+	if((investor_email == '') || (investor_email == 'null') || (investor_email == null))
+	{
+		$(".investor_action").html('<a href="#" data-popup=".popup-investorup" class="form_submit open-popup"> Register Here </a>').fadeIn( "slow");
+	}
+	
+	else
+	{
+		$(".investor_action").html('<a href="investors.html" class="form_submit"> View forum </a>').fadeIn( "slow");
+	}
+});
+
+
+//cpd forum query member
+$(document).on("submit","form#CommentForm",function(e)
+{
+	e.preventDefault();
+	$( "#loader-wrapper" ).removeClass( "display_none" );
+	
+	//get form values
+	var form_data = new FormData(this);
+	
+	//check if there is a network connection
+	var connection = true;//is_connected();
+	
+	if(connection === true)
+	{
+		var service = new MembershipService();
+		service.initialize().done(function () {
+			console.log("Service initialized");
+		});
+		
+		service.save_comment(form_data).done(function (employees) {
+			var data = jQuery.parseJSON(employees);
+			
+			if(data.message == "success")
+			{
+				//set local variables for future auto login
+				$("ul#forum_comments").append(data.result);
+				$( "#loader-wrapper" ).addClass( "display_none" );
+			}
+			else
+			{
+				$("#comments_error").html(data.result).fadeIn( "slow");
+				$( "#loader-wrapper" ).addClass( "display_none" );
+			}
+			
+        });
+	}
+	
+	else
+	{
+		$("#comments_error").html('<div class="alert alert-danger center-align">'+"No internet connection - please check your internet connection then try again"+'</div>').fadeIn( "slow");
 		$( "#loader-wrapper" ).addClass( "display_none" );
 	}
 	return false;
