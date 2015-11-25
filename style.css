@@ -1152,6 +1152,10 @@ top:15px;
 right:15px;
 width:30px;
 }
+.post_social2{
+z-index:999;
+width:30px;
+}
 .post_social img{
 display:block;
 max-width:100%;
