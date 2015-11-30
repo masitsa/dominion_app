@@ -384,8 +384,8 @@ $(document).on("click","a.share_post",function(e)
 		  subject,
 		  file,
 		  url,
-		  function(result) {alert('success: ' + result)},
-		  function(result) {alert('error: ' + result)}
+		  function(result) {/*alert('success: ' + result)*/},
+		  function(result) {/*alert('error: ' + result)*/}
 	 );
 	return false;
 });
