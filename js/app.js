@@ -339,7 +339,7 @@ $$(document).on('pageInit', '.page[data-page="professionals"]', function (e)
 			$( "#loader-wrapper" ).addClass( "display_none" );
 		}
 	});
-})
+});
 
 $$(document).on('pageInit', '.page[data-page="investors"]', function (e) 
 {
@@ -368,4 +368,24 @@ $$(document).on('pageInit', '.page[data-page="investors"]', function (e)
 			$( "#loader-wrapper" ).addClass( "display_none" );
 		}
 	});
-})
+});
+
+//Share post
+$(document).on("click","a.share_post",function(e)
+{
+	e.preventDefault();
+	
+	var message = $( "#content" ).val();
+	var subject = $( "#title" ).val();
+	var file = $( "#image" ).val();
+	var url = null;
+	window.plugins.socialsharing.share(
+		  message,
+		  subject,
+		  file,
+		  url,
+		  function(result) {/*alert('success: ' + result)*/},
+		  function(result) {/*alert('error: ' + result)*/}
+	 );
+	return false;
+});
