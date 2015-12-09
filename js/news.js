@@ -14,6 +14,21 @@ function is_connected()
 	});
 }
 
+// document.addEventListener("deviceready", onDeviceReady, false);
+
+// PhoneGap is ready
+
+function onDeviceReady() {   
+
+	$( "#loader-wrapper" ).addClass( "display_none" );
+	var bible_school_detail = window.localStorage.getItem("bible_school_detail");
+	var college_detail = window.localStorage.getItem("college_detail");
+
+
+	$( "#bible_school_detail").html(bible_school_detail);
+    $( "#college_detail").html(college_detail);
+}
+
 
 var EmployeeNewsService = function() {
 
@@ -73,6 +88,10 @@ var EmployeeNewsService = function() {
     this.getInitativePage = function(id) {
 		var request = url + "initiatives/get_initiative_page" ;
         return $.ajax({url: url + "initiatives/get_initiative_page/" + id});
+    }
+    this.getCollegeDetail = function(id) {
+		var request = url + "bible_school/get_college_details" ;
+        return $.ajax({url: url + "bible_school/get_college_details/" + id});
     }
     this.getbibleschooldetail = function() {
 		var request = url + "bible_school/get_bible_school_detail" ;
@@ -139,6 +158,7 @@ function get_news_description(id)
 			$( "#news_detail" ).html( data.result );
 			$( "#loader-wrapper" ).addClass( "display_none" );
 
+
 		}
 		
 		else
@@ -167,7 +187,7 @@ function get_initiative_items()
 			// alert(data.result);
 			$( "#initiatives_list" ).html(data.result);
 			$( "#loader-wrapper" ).addClass( "display_none" );
-			// window.localStorage.setItem("initiative_history", data.result);
+			window.localStorage.setItem("initiatives_list", data.result);
 			// window.localStorage.setItem("total_news", data.total_received);
 		}
 		
@@ -200,6 +220,8 @@ function get_initiatives_description(id,parent_id)
 			$( "#initiative_detail" ).html( data.result );
 			$( "#loader-wrapper" ).addClass( "display_none" );
 
+			window.localStorage.setItem("initiative_detail", data.result);
+
 		}
 		
 		else
@@ -230,16 +252,51 @@ function get_arms_items()
 
 			$( "#arms_list" ).html(data.result);
 			$( "#loader-wrapper" ).addClass( "display_none" );
-			// window.localStorage.setItem("initiative_history", data.result);
+			window.localStorage.setItem("arms_list", data.result);
 			// window.localStorage.setItem("total_news", data.total_received);
 		}
 		
 		else
 		{
-
+			var arms_list = window.localStorage.getItem("arms_list");
+			$( "#arms_list").html(arms_list);
+			$( "#loader-wrapper" ).addClass( "display_none" );
 		}
 	});
 }
+
+function get_college_details(id)
+{
+	$( "#loader-wrapper" ).removeClass( "display_none" );
+	var service = new EmployeeNewsService();
+	service.initialize().done(function () {
+		console.log("Service initialized");
+	});
+	
+	//get client's credentials
+	// var id = getURLParameter('id');
+	// alert(id);
+	
+	service.getCollegeDetail(id).done(function (employees) {
+		var data = jQuery.parseJSON(employees);
+		
+		if(data.message == "success")
+		{
+			// alert(data.result);
+			$( "#college_detail" ).html(data.result);
+			$( "#loader-wrapper" ).addClass( "display_none" );
+			window.localStorage.setItem("college_detail", data.result);
+		}
+		
+		else
+		{
+			var college_detail = window.localStorage.getItem("college_detail");
+			$( "#college_detail").html(college_detail);
+			$( "#loader-wrapper" ).addClass( "display_none" );
+		}
+	});
+}
+
 
 function bible_school_detail()
 {
@@ -257,7 +314,7 @@ function bible_school_detail()
 		if(data.message == "success")
 		{
 			// $( "#news-of-icpak" ).addClass( "display_block" );
-
+			$( "#bible_school_detail" ).addClass( "display_block" );
 			$( "#bible_school_detail" ).html(data.result);
 			$( "#loader-wrapper" ).addClass( "display_none" );
 			window.localStorage.setItem("bible_school_detail", data.result);
@@ -265,7 +322,9 @@ function bible_school_detail()
 		
 		else
 		{
-
+			var bible_school_detail = window.localStorage.getItem("bible_school_detail");
+			$( "#bible_school_detail").html(bible_school_detail);
+			$( "#loader-wrapper" ).addClass( "display_none" );
 		}
 	});
 }

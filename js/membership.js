@@ -199,7 +199,7 @@ $$(document).on('pageInit', '.page[data-page="membership"]', function (e)
 	var influencer_email = window.localStorage.getItem("influencer_email");
 	if((influencer_email == '') || (influencer_email == 'null') || (influencer_email == null))
 	{
-		$(".influencer_action").html('<a href="#" data-popup=".popup-influenceup" class="form_submit open-popup"> Register Here </a>').fadeIn( "slow");
+		$(".influencer_action").html('<a href="#" data-popup=".popup-influenceup" class="form_submit open-popup"> Join Now </a>').fadeIn( "slow");
 	}
 	
 	else
@@ -211,7 +211,7 @@ $$(document).on('pageInit', '.page[data-page="membership"]', function (e)
 	var professional_email = window.localStorage.getItem("professional_email");
 	if((professional_email == '') || (professional_email == 'null') || (professional_email == null))
 	{
-		$(".professionals_action").html('<a href="#" data-popup=".popup-profup" class="form_submit open-popup"> Register Here </a>').fadeIn( "slow");
+		$(".professionals_action").html('<a href="#" data-popup=".popup-profup" class="form_submit open-popup"> Join Now </a>').fadeIn( "slow");
 	}
 	
 	else
@@ -223,7 +223,7 @@ $$(document).on('pageInit', '.page[data-page="membership"]', function (e)
 	var investor_email = window.localStorage.getItem("investor_email");
 	if((investor_email == '') || (investor_email == 'null') || (investor_email == null))
 	{
-		$(".investor_action").html('<a href="#" data-popup=".popup-investorup" class="form_submit open-popup"> Register Here </a>').fadeIn( "slow");
+		$(".investor_action").html('<a href="#" data-popup=".popup-investorup" class="form_submit open-popup"> Join Now </a>').fadeIn( "slow");
 	}
 	
 	else

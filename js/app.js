@@ -1,6 +1,7 @@
 var myApp = new Framework7();
 var $$ = Dom7;
 
+
 //login & registration functions
 var Login_service = function() {
 
@@ -22,6 +23,10 @@ var Login_service = function() {
         return $.ajax({url: request, data: form_data, type: 'POST', processData: false,contentType: false});
     }
 }
+
+
+
+
 
 //Register member
 $(document).on("submit","form#register_member",function(e)
