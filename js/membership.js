@@ -50,9 +50,9 @@ $(document).on("submit","form#register_influencer",function(e)
 	$( "#loader-wrapper" ).removeClass( "display_none" );
 	
 	//check if there is a network connection
-	var connection = true;//is_connected();
+	var connection = checkConnection();
 	
-	if(connection === true)
+	if(connection != 'No network connection')
 	{
 		var service = new MembershipService();
 		service.initialize().done(function () {
@@ -102,9 +102,9 @@ $(document).on("submit","form#register_professional",function(e)
 	$( "#loader-wrapper" ).removeClass( "display_none" );
 	
 	//check if there is a network connection
-	var connection = true;//is_connected();
+	var connection = checkConnection();
 	
-	if(connection === true)
+	if(connection != 'No network connection')
 	{
 		var service = new MembershipService();
 		service.initialize().done(function () {
@@ -154,9 +154,9 @@ $(document).on("submit","form#register_investor",function(e)
 	$( "#loader-wrapper" ).removeClass( "display_none" );
 	
 	//check if there is a network connection
-	var connection = true;//is_connected();
+	var connection = checkConnection();
 	
-	if(connection === true)
+	if(connection != 'No network connection')
 	{
 		var service = new MembershipService();
 		service.initialize().done(function () {
@@ -243,9 +243,9 @@ $(document).on("submit","form#CommentForm",function(e)
 	var form_data = new FormData(this);
 	
 	//check if there is a network connection
-	var connection = true;//is_connected();
+	var connection = checkConnection();
 	
-	if(connection === true)
+	if(connection != 'No network connection')
 	{
 		var service = new MembershipService();
 		service.initialize().done(function () {
