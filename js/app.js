@@ -13,6 +13,7 @@ myApp.onPageInit('install', function (page) {
 	var response = database_service.delete_database();
 });
 
+
 //login & registration functions
 var Login_service = function() {
 
